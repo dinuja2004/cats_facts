@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Fun Facts</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-display {
+            margin: 20px 0;
+            font-size: 1.2em;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cat Fun Facts</h1>
+        <div id="fact-display" class="fact-display">Click the button to see a fun fact!</div>
+        <button id="fact-button" class="button">Show Random Fact</button>
+        <button id="twitter-button" class="button">Share on Twitter</button>
+    </div>
+    <script>
+        // script.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const facts = [
+                "Cats have five toes on their front paws, but only four toes on their back paws.",
+                "Cats can rotate their ears 180 degrees.",
+                "A group of cats is called a clowder.",
+                "Cats sleep for 70% of their lives.",
+                "A cat's nose is as unique as a human's fingerprint.",
+                "The world's largest cat measured 48.5 inches long.",
+                "Cats can make over 100 different sounds.",
+                "A cat's whiskers are generally about the same width as its body.",
+                "Cats have a third eyelid called a haw.",
+                "A cat can jump up to six times its length."
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+            const factButton = document.getElementById('fact-button');
+            const twitterButton = document.getElementById('twitter-button');
+
+            factButton.addEventListener('click', () => {
+                const randomFact = facts[Math.floor(Math.random() * facts.length)];
+                factDisplay.style.opacity = 0;
+                setTimeout(() => {
+                    factDisplay.textContent = randomFact;
+                    factDisplay.style.opacity = 1;
+                }, 500);
+            });
+
+            twitterButton.addEventListener('click', () => {
+                const text = encodeURIComponent(factDisplay.textContent);
+                const url = https://twitter.com/intent/tweet?text=${text};
+                window.open(url, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
