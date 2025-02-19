@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Fun Facts</title>
     <style>
-        /* styles.css */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -62,7 +61,6 @@
         <button id="twitter-button" class="button">Share on Twitter</button>
     </div>
     <script>
-        // script.js
         document.addEventListener('DOMContentLoaded', () => {
             const facts = [
                 "Cats have five toes on their front paws, but only four toes on their back paws.",
@@ -92,7 +90,7 @@
 
             twitterButton.addEventListener('click', () => {
                 const text = encodeURIComponent(factDisplay.textContent);
-                const url = https://twitter.com/intent/tweet?text=${text};
+                const url = `https://twitter.com/intent/tweet?text=${text}`;
                 window.open(url, '_blank');
             });
         });
